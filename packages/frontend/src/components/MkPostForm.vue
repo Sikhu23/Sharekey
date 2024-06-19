@@ -94,6 +94,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 			<!--<button v-tooltip="i18n.ts.more" class="_button" :class="$style.footerButton" @click="showingOptions = !showingOptions"><i class="ph-dots-three ph-bold ph-lg"></i></button>-->
 		</div>
 	</footer>
+	<div v-if="visibility === 'specified'" :class="$style.hintText">CONSIDER USING CHAT FOR INSTANT MESSAGING</div>
 	<datalist id="hashtags">
 		<option v-for="hashtag in recentHashtags" :key="hashtag" :value="hashtag"/>
 	</datalist>
@@ -745,7 +746,7 @@ async function post(ev?: MouseEvent) {
 			visibility.value = 'home';
 		}
 	}
-	
+
 	if (defaultStore.state.warnMissingAltText) {
 		const filesData = toRaw(files.value);
 
@@ -765,7 +766,7 @@ async function post(ev?: MouseEvent) {
 			});
 
 			if (canceled) return;
-			if (result === 'cancel') return;	
+			if (result === 'cancel') return;
 		}
 	}
 
@@ -1277,6 +1278,11 @@ defineExpose({
 	padding: 0 16px 16px 16px;
 	font-size: 1em;
 }
+.hintText {
+	text-align: center;
+  color: red;
+  font-weight: 100; /* Adjust this value for less bold, 400 is normal, 100 is thin */
+}
 
 .footerLeft {
 	flex: 1;
@@ -1375,4 +1381,5 @@ defineExpose({
 	}
 
 }
+
 </style>
