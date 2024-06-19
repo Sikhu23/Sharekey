@@ -178,4 +178,47 @@ export const navbarItemDef = reactive({
 			clearCache();
 		},
 	},
+	chat: {
+		title: 'Chat',
+		icon: 'ph-chats-teardrop ph-bold ph-lg',
+		action: () => {
+			window.open('https://chat.qratedspace.com/', '_blank', 'noopener');
+		},
+	},
+	health: {
+		title: 'Health',
+		icon: 'ph-hash ph-bold ph-lg',
+		action: () => {
+			window.open('https://heath.qratedspace.com/', '_blank', 'noopener');
+		},
+	},
+	jobs: {
+		title: 'Jobs',
+		icon: 'ph-hash ph-bold ph-lg',
+		action: () => {
+			window.open('https://jobs.qratedspace.com/', '_blank', 'noopener');
+		},
+	},
+	events: {
+		title:'Events',
+		icon: 'ph-hash ph-bold ph-lg',
+		action: () => {
+			window.open('https://events.qratedspace.com/', '_blank', 'noopener');
+		},
+	},
+	freelance: {
+		title: 'Freelance',
+		icon: 'ph-hash ph-bold ph-lg',
+		action: () => {
+			window.open('https://freelance.qratedspace.com/', '_blank', 'noopener');
+		},
+	},
+	bazaar: {
+		title: 'Bazaar',
+		icon: 'ph-hash ph-bold',
+		action: () => {
+			window.open('https://bazaar.qratedspace.com/', '_blank', 'noopener');
+		},
+	}
+
 });
