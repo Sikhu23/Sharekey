@@ -78,7 +78,12 @@ export function openInstanceMenu(ev: MouseEvent) {
 		text: i18n.ts.tools,
 		icon: 'ph-toolbox ph-bold ph-lg',
 		disabled:true
-	}, { type: 'divider' }, (instance.impressumUrl) ? {
+	}, { type: 'divider' }, {
+		type: 'link',
+		text: i18n.ts.inquiry,
+		icon: 'ph-question ph-bold ph-lg',
+		to: '/contact',
+	}, (instance.impressumUrl) ? {
 		text: i18n.ts.impressum,
 		icon: 'ph-newspaper-clipping ph-bold ph-lg',
 		action: () => {
@@ -103,8 +108,8 @@ export function openInstanceMenu(ev: MouseEvent) {
 			window.open(instance.donationUrl, '_blank', 'noopener');
 		},
 	} : undefined, (!instance.impressumUrl && !instance.tosUrl && !instance.privacyPolicyUrl && !instance.donationUrl) ? undefined : { type: 'divider' }, {
-		text: i18n.ts.help,
-		icon: 'ph-question ph-bold ph-lg',
+		text: i18n.ts.document,
+		icon: 'ph-libghtbulb ph-bold ph-lg',
 		action: () => {
 			window.open('https://misskey-hub.net/docs/for-users/', '_blank', 'noopener');
 		},
