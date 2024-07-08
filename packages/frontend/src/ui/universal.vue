@@ -34,6 +34,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 			</span>
 		</button>
 		<button :class="$style.navButton" class="_button" @click="widgetsShowing = true"><i :class="$style.navButtonIcon" class="ph-stack ph-bold ph-lg"></i></button>
+		<button :class="$style.navButton" class="_button" @click="openChat()"><i :class="$style.navButtonIcon" class=" ph-chats-teardrop ph-bold ph-lg"></i></button>
 		<button :class="$style.postButton" class="_button" @click="os.post()"><i :class="$style.navButtonIcon" class="ph-pencil-simple ph-bold ph-lg"></i></button>
 	</div>
 
@@ -224,6 +225,10 @@ function top() {
 	});
 }
 
+function openChat() {
+      window.open('https://chat.qratedspace.com', '_blank');
+    }
+
 const navFooterHeight = ref(0);
 provide<Ref<number>>(CURRENT_STICKY_BOTTOM, navFooterHeight);
 
@@ -401,7 +406,7 @@ $widgets-hide-threshold: 1090px;
 	left: 0;
 	padding: 12px 12px max(12px, env(safe-area-inset-bottom, 0px)) 12px;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 	grid-gap: 8px;
 	width: 100%;
 	box-sizing: border-box;

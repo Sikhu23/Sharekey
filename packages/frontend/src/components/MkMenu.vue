@@ -54,7 +54,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 					<span :class="$style.caret" style="pointer-events: none;"><i class="ph-caret-right ph-bold ph-lg ti-fw"></i></span>
 				</div>
 			</button>
-			<button v-else :tabindex="i" class="_button" role="menuitem" :class="[$style.item, { [$style.danger]: item.danger, [$style.active]: getValue(item.active) }]" :disabled="getValue(item.active)" @click="clicked(item.action, $event)" @mouseenter.passive="onItemMouseEnter(item)" @mouseleave.passive="onItemMouseLeave(item)">
+			<button v-else :tabindex="i" class="_button" role="menuitem" :class="[$style.item, { [$style.danger]: item.danger, [$style.active]: getValue(item.active),[$style.disabled]:item.disabled }]" :disabled="getValue(item.active)" @click="clicked(item.action, $event)" @mouseenter.passive="onItemMouseEnter(item)" @mouseleave.passive="onItemMouseLeave(item)">
 				<i v-if="item.icon" class="ti-fw" :class="[$style.icon, item.icon]"></i>
 				<MkAvatar v-if="item.avatar" :user="item.avatar" :class="$style.avatar"/>
 				<div :class="$style.item_content">
@@ -413,6 +413,13 @@ onBeforeUnmount(() => {
 
 .switchDisabled {
 	cursor: not-allowed;
+}
+
+.disabled {
+  color: gray;
+  pointer-events: none; /* Prevents interactions */
+	cursor: not-allowed;
+  opacity: 0.6;
 }
 
 .switchButton {

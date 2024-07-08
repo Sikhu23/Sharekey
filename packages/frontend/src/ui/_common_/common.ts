@@ -75,10 +75,9 @@ export function openInstanceMenu(ev: MouseEvent) {
 		text: i18n.ts.invite,
 		icon: 'ph-user-plus ph-bold ph-lg',
 	} : undefined, {
-		type: 'parent',
 		text: i18n.ts.tools,
 		icon: 'ph-toolbox ph-bold ph-lg',
-		children: toolsMenuItems(),
+		disabled:true
 	}, { type: 'divider' }, (instance.impressumUrl) ? {
 		text: i18n.ts.impressum,
 		icon: 'ph-newspaper-clipping ph-bold ph-lg',

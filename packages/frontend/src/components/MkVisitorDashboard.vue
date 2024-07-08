@@ -26,7 +26,7 @@ SPDX-License-Identifier: AGPL-3.0-only
 			</div>
 			<div class="_gaps_s" :class="$style.mainActions">
 				<MkButton :class="$style.mainAction" full rounded gradate data-cy-signup style="margin-right: 12px;" @click="signup()">{{ i18n.ts.joinThisServer }}</MkButton>
-				<MkButton :class="$style.mainAction" full rounded @click="exploreOtherServers()">{{ i18n.ts.exploreOtherServers }}</MkButton>
+				<!-- <MkButton :class="$style.mainAction" full rounded @click="exploreOtherServers()">{{ i18n.ts.exploreOtherServers }}</MkButton> -->
 				<MkButton :class="$style.mainAction" full rounded data-cy-signin @click="signin()">{{ i18n.ts.login }}</MkButton>
 			</div>
 		</div>
@@ -72,7 +72,6 @@ import XActiveUsersChart from '@/components/MkVisitorDashboard.ActiveUsersChart.
 
 const meta = ref<Misskey.entities.MetaResponse | null>(null);
 const stats = ref<Misskey.entities.StatsResponse | null>(null);
-
 misskeyApi('meta', { detail: true }).then(_meta => {
 	meta.value = _meta;
 });

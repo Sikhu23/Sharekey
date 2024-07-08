@@ -17,10 +17,10 @@ export type MenuUser = { type: 'user', user: Misskey.entities.User, active?: boo
 export type MenuSwitch = { type: 'switch', ref: Ref<boolean>, text: string, disabled?: boolean | Ref<boolean> };
 export type MenuButton = { type?: 'button', text: string, icon?: string, indicate?: boolean, danger?: boolean, active?: boolean | ComputedRef<boolean>, avatar?: Misskey.entities.User; action: MenuAction };
 export type MenuParent = { type: 'parent', text: string, icon?: string, children: MenuItem[] | (() => Promise<MenuItem[]> | MenuItem[]) };
-
+export type MenuParentNew = { type?: 'parent', text: string, icon?: string};
 export type MenuPending = { type: 'pending' };
 
-type OuterMenuItem = MenuDivider | MenuNull | MenuLabel | MenuLink | MenuA | MenuUser | MenuSwitch | MenuButton | MenuParent;
+type OuterMenuItem = MenuDivider | MenuNull | MenuLabel | MenuLink | MenuA | MenuUser | MenuSwitch | MenuButton | MenuParent | MenuParentNew;
 type OuterPromiseMenuItem = Promise<MenuLabel | MenuLink | MenuA | MenuUser | MenuSwitch | MenuButton | MenuParent>;
 export type MenuItem = OuterMenuItem | OuterPromiseMenuItem;
 export type InnerMenuItem = MenuDivider | MenuPending | MenuLabel | MenuLink | MenuA | MenuUser | MenuSwitch | MenuButton | MenuParent;
