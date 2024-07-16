@@ -242,13 +242,15 @@ export async function mainBoot() {
 		}
 		miLocalStorage.setItem('lastUsed', Date.now().toString());
 
-		const latestDonationInfoShownAt = miLocalStorage.getItem('latestDonationInfoShownAt');
-		const neverShowDonationInfo = miLocalStorage.getItem('neverShowDonationInfo');
-		if (neverShowDonationInfo !== 'true' && (createdAt.getTime() < (Date.now() - (1000 * 60 * 60 * 24 * 3))) && !location.pathname.startsWith('/miauth')) {
-			if (latestDonationInfoShownAt == null || (new Date(latestDonationInfoShownAt).getTime() < (Date.now() - (1000 * 60 * 60 * 24 * 30)))) {
-				popup(defineAsyncComponent(() => import('@/components/MkDonation.vue')), {}, {}, 'closed');
-			}
-		}
+
+		//Disabling the donation popup
+		// const latestDonationInfoShownAt = miLocalStorage.getItem('latestDonationInfoShownAt');
+		// const neverShowDonationInfo = miLocalStorage.getItem('neverShowDonationInfo');
+		// if (neverShowDonationInfo !== 'true' && (createdAt.getTime() < (Date.now() - (1000 * 60 * 60 * 24 * 3))) && !location.pathname.startsWith('/miauth')) {
+		// 	if (latestDonationInfoShownAt == null || (new Date(latestDonationInfoShownAt).getTime() < (Date.now() - (1000 * 60 * 60 * 24 * 30)))) {
+		// 		popup(defineAsyncComponent(() => import('@/components/MkDonation.vue')), {}, {}, 'closed');
+		// 	}
+		// }
 
 		const modifiedVersionMustProminentlyOfferInAgplV3Section13Read = miLocalStorage.getItem('modifiedVersionMustProminentlyOfferInAgplV3Section13Read');
 		if (modifiedVersionMustProminentlyOfferInAgplV3Section13Read !== 'true' && instance.repositoryUrl !== 'https://activitypub.software/TransFem-org/Sharkey/') {
@@ -288,7 +290,7 @@ export async function mainBoot() {
 
 		main.on('unreadNotification', () => {
 			attemptShowNotificationDot();
-			
+
 			const unreadNotificationsCount = ($i?.unreadNotificationsCount ?? 0) + 1;
 			updateAccount({
 				hasUnreadNotification: true,
